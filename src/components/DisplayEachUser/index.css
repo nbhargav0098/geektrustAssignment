@@ -1,0 +1,19 @@
+.list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.details {
+  text-align: left;
+  font-size: 16px;
+}
+.icons-container {
+  display: flex;
+}
+.icons {
+  margin-right: 20px;
+  margin-left: 5px;
+}
+.list-container {
+  width: 150px;
+}
