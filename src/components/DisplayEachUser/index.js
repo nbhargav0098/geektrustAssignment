@@ -1,25 +1,28 @@
-import {Component} from 'react'
 import {IconContext} from 'react-icons'
 import {AiOutlineDelete} from 'react-icons/ai'
 import {FiEdit} from 'react-icons/fi'
 import './index.css'
 
-class DisplayEachUser extends Component {
-  render() {
-    const {person} = this.props
-    return (
-      <li className="list-item">
+const DisplayEachUser = props => {
+  const {userDetails, deleteUserId} = props
+  const {name, id, email, role} = userDetails
+  const onDeleteUser = () => {
+    deleteUserId(id)
+  }
+  return (
+    <>
+      <li className="list-item" htmlFor={`checkbox${id}`}>
         <div className="list-container">
-          <input type="checkbox" />
+          <input type="checkbox" id={`checkbox${id}`} />
         </div>
         <div className="list-container">
-          <p className="details">{person.name}</p>
+          <p className="details">{name}</p>
         </div>
         <div className="list-container">
-          <p className="details">{person.email}</p>
+          <p className="details">{email}</p>
         </div>
         <div className="list-container">
-          <p className="details">{person.role.toUpperCase()}</p>
+          <p className="details">{role.toUpperCase()}</p>
         </div>
         <div className="list-container">
           <div className="icons-container">
@@ -37,14 +40,15 @@ class DisplayEachUser extends Component {
                 value={{style: {fontSize: '17px', color: 'red'}}}
               >
                 <div>
-                  <AiOutlineDelete />
+                  <AiOutlineDelete onClick={onDeleteUser} />
                 </div>
               </IconContext.Provider>
             </div>
           </div>
         </div>
       </li>
-    )
-  }
+      <hr />
+    </>
+  )
 }
 export default DisplayEachUser
