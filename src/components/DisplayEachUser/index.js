@@ -37,7 +37,7 @@ const DisplayEachUser = props => {
             </div>
             <div className="icons">
               <IconContext.Provider
-                value={{style: {fontSize: '17px', color: 'red'}}}
+                value={{style: {fontSize: '16px', color: 'red'}}}
               >
                 <div>
                   <AiOutlineDelete onClick={onDeleteUser} />
